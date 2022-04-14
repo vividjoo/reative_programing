@@ -6,7 +6,7 @@
 
 </h1>
 
-# _dependencies_
+# - _dependencies_
 
 ```
         implementation 'org.springframework.boot:spring-boot-starter-web'
