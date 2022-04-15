@@ -49,6 +49,7 @@ public class RxJavaTests {
      * @description flux를 단계별로 검증
      * 첫 번째 예상값은 hello
      * 두 번째 예상되는 값은 there
+     *
      */
     @Test
     public void hello와there() {
@@ -57,6 +58,10 @@ public class RxJavaTests {
         StepVerifier.create(flux).expectNext("hello").expectNext("there").verifyComplete();
     }
 
+    /**
+     * @description
+     *      2개의 시퀀스를 하나의 시퀀스로 zip
+     */
     @Test
     public void 다섯번째문제() {
         Flux<String> flux1 = Flux.just("Blenders", "Old", "Johnnie");
@@ -69,10 +74,8 @@ public class RxJavaTests {
     /**
      * @description flatMap -> 비동기
      * Map -> 동기
-     * <p>
      * 5글자 이상인 것들을 필터 한 후, 대문자로 치환 하고 1회 반복하고, 해당 값들이 나올 것들을 기대한다.
      * expectNext에 다른 값을 넣으면 바로 에러가 뜬다.
-     * 다    *
      */
     @Test
     public void 다섯글자이상() {
