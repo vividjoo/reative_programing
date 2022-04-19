@@ -1,20 +1,14 @@
 package com.webflux.codestates;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.BodyInserters;
-import org.springframework.web.reactive.function.server.RouterFunction;
-import org.springframework.web.reactive.function.server.RouterFunctions;
 import org.springframework.web.reactive.function.server.ServerRequest;
 import org.springframework.web.reactive.function.server.ServerResponse;
 import reactor.core.publisher.Mono;
 
-
 import java.util.HashMap;
-
-import static org.springframework.web.reactive.function.server.ServerResponse.ok;
+import java.util.Map;
 
 
 @Component
@@ -37,13 +31,13 @@ public class Hello {
         System.out.println("123123123123");
         String name = req.queryParam("name").get();
 //        String name = req.pathVariable("name");
-        HashMap nameMap = new HashMap();
-        nameMap.put("to", name);
-        nameMap.put("message", "hello "+name);
-        Mono<HashMap> mymono = Mono.just(nameMap);
+        Map hashMap = new HashMap();
+        hashMap.put("to", name);
+        hashMap.put("message", "hello "+name);
+        Mono<Map> mono = Mono.just(hashMap);
         return
                 ServerResponse.ok()
                .contentType(MediaType.APPLICATION_JSON)
-               .body(BodyInserters.fromProducer(mymono, HashMap.class));
+               .body(BodyInserters.fromProducer(mono, HashMap.class));
     }
 }

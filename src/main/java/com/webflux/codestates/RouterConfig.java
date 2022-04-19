@@ -22,12 +22,10 @@ public class RouterConfig {
 ////                hello::helloHandler);
 //    }
 
-//   아래 설정
     @Bean
     public RouterFunction<ServerResponse> helloRouter(Hello hello) {
         return RouterFunctions.route()
                 .GET("/hello", hello::helloHandler)
                 .build();
     }
-    //   아래 설정
 }
