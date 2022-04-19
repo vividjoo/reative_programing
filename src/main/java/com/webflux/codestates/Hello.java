@@ -31,7 +31,7 @@ public class Hello {
         System.out.println("123123123123");
         String name = req.queryParam("name").get();
 //        String name = req.pathVariable("name");
-        Map hashMap = new HashMap();
+        Map<String, String> hashMap = new HashMap();
         hashMap.put("to", name);
         hashMap.put("message", "hello "+name);
         Mono<Map> mono = Mono.just(hashMap);
